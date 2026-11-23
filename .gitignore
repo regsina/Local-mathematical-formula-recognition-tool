@@ -1,3 +1,5 @@
 .venv/
 
 .codeartsdoer/
+__pycache__/
+*.pyc
