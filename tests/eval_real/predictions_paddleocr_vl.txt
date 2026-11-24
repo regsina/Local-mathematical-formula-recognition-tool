@@ -1,0 +1,93 @@
+### Snipaste_2026-11-24_14-40-16.png (17.51s)
+f^{\prime}(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
+
+### Snipaste_2026-11-24_14-40-38.png (1.00s)
+\int_{a}^{b}f(x)d x=F(b)-F(a),\quad F^{\prime}(x)=f(x)
+
+### Snipaste_2026-11-24_14-40-48.png (0.62s)
+\int u\mathrm{d}v=u v-\int v\mathrm{d}u
+
+### Snipaste_2026-11-24_14-40-58.png (1.66s)
+\iint_{D}f(x,y)\mathrm{d}x\mathrm{d}y=\int_{x_{1}}^{x_{2}}\int_{y_{1}(x)}^{y_{2}(x)}f(x,y)\mathrm{d}y\mathrm{d}x
+
+### Snipaste_2026-11-24_14-41-04.png (1.28s)
+\iiint_{\Omega}f(x,y,z)\mathrm{d}V=\iiint_{\Omega}f(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z
+
+### Snipaste_2026-11-24_14-41-09.png (1.28s)
+\oint_{L}P\mathrm{d}x+Q\mathrm{d}y=\iint_{D}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}\sigma
+
+### Snipaste_2026-11-24_14-41-14.png (2.44s)
+\oint_{\Sigma}P\mathrm{d}y\mathrm{d}z+Q\mathrm{d}z\mathrm{d}x+R\mathrm{d}x\mathrm{d}y=\iiint_{\Omega}\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm{d}V
+
+### Snipaste_2026-11-24_14-41-18.png (0.86s)
+f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^{n}
+
+### Snipaste_2026-11-24_14-41-23.png (0.86s)
+\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_{n}}\right|=\rho
+
+### Snipaste_2026-11-24_14-41-28.png (1.11s)
+\frac{\partial z}{\partial x}=\lim_{\Delta x\to0}\frac{f(x+\Delta x,y)-f(x,y)}{\Delta x}
+
+### Snipaste_2026-11-24_14-41-32.png (1.01s)
+\nabla f=\frac{\partial f}{\partial x}i+\frac{\partial f}{\partial y}j+\frac{\partial f}{\partial z}k
+
+### Snipaste_2026-11-24_14-41-38.png (0.90s)
+\mathrm{d}z={\frac{\partial z}{\partial x}}\mathrm{d}x+{\frac{\partial z}{\partial y}}\mathrm{d}y
+
+### Snipaste_2026-11-24_14-41-42.png (0.91s)
+y = e^{-\int P(x) \, dx} \int Q(x) e^{\int P(x) \, dx} \, dx + C
+
+### Snipaste_2026-11-24_14-41-47.png (0.77s)
+\sin(\alpha + \beta) = \sin\alpha \cos\beta + \cos\alpha \sin\beta
+
+### Snipaste_2026-11-24_14-41-51.png (0.48s)
+\sin^{2}x+\cos^{2}x=1
+
+### Snipaste_2026-11-24_14-41-55.png (0.62s)
+\cos 2\theta = \cos^2\theta - \sin^2\theta
+
+### Snipaste_2026-11-24_14-41-59.png (0.78s)
+\frac{\mathrm{d}}{\mathrm{d}x}\arctan x=\frac{1}{1+x^{2}}
+
+### Snipaste_2026-11-24_14-42-06.png (0.45s)
+a\cdotb=|a||b|\cos\theta
+
+### Snipaste_2026-11-24_14-42-10.png (1.75s)
+a\timesb=(a_{y}b_{z}-a_{z}b_{y})i+(a_{z}b_{x}-a_{x}b_{z})j+(a_{x}b_{y}-a_{y}b_{x})k
+
+### Snipaste_2026-11-24_14-42-15.png (0.77s)
+\det\begin{pmatrix}a & b \\ c & d\end{pmatrix}=ad-bc
+
+### Snipaste_2026-11-24_14-42-19.png (0.65s)
+tr(A) = \sum_{i=1}^{n} A_{ii}
+
+### Snipaste_2026-11-24_14-42-25.png (0.79s)
+(AB)_{ij} = \sum_{k=1}^{n} A_{ik} B_{kj}
+
+### Snipaste_2026-11-24_14-42-30.png (0.42s)
+\det(A - \lambda I) = 0
+
+### Snipaste_2026-11-24_14-42-43.png (0.69s)
+\|x\|_{2}=\sqrt{\sum_{i=1}^{n}x_{i}^{2}}
+
+### Snipaste_2026-11-24_14-42-47.png (0.51s)
+(A B)^{T}=B^{T}A^{T}
+
+### Snipaste_2026-11-24_14-42-51.png (1.24s)
+\int_{a}^{b} f(x) \, dx = \int_{\varphi^{-1}(a)}^{\varphi^{-1}(b)} f(\varphi(t)) \varphi'(t) \, dt
+
+### Snipaste_2026-11-24_14-42-56.png (0.74s)
+f(a)=f(b)\implies\exists\xi\in(a,b),f^{\prime}(\xi)=0
+
+### Snipaste_2026-11-24_14-43-00.png (0.40s)
+\prod_{k=1}^{n} k = n!
+
+### Snipaste_2026-11-24_14-43-03.png (0.31s)
+\nabla f = \lambda \nabla g
+
+### Snipaste_2026-11-24_14-43-06.png (0.44s)
+e^{i\theta}=\cos\theta+i\sin\theta
+
+### Snipaste_2026-11-24_23-19-26.png (2.45s)
+\operatorname{PRAG-Sequence}(y|x) \approx \sum_{z \in \operatorname{top-k}(p(\cdot|x))} p_n(z|x) p_\theta(y|x,z) = \sum_{z \in \operatorname{top-k}(p(\cdot|x))} p_n(z|x) \prod_{i} p_\theta(y_i|x,z,y_1:i)
+

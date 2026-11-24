@@ -14,7 +14,7 @@ _YAML_TEMPLATE = """model:
     model_name: "{model_dir}"
     max_seq_len: 1536
   load_pretrained: True
-  pretrained: "{model_dir}/unimernet_small.pth"
+  pretrained: "{model_dir}/{weights_file}"
   tokenizer_config:
     path: "{model_dir}"
 
@@ -51,6 +51,15 @@ run:
 WEIGHTS_FILE = "unimernet_small.pth"
 
 
+def _find_weights_file(model_dir: str) -> str | None:
+    if not os.path.isdir(model_dir):
+        return None
+    for name in sorted(os.listdir(model_dir)):
+        if name.endswith(".pth"):
+            return name
+    return None
+
+
 def _qimage_to_pil(image: QImage):
     from PIL import Image
 
@@ -73,14 +82,15 @@ class UniMERNetRecognizer(Recognizer):
         return "unimernet"
 
     def version(self) -> str:
-        return "small-0.2.3"
+        return f"{os.path.basename(self._model_dir)}-0.2.3"
 
     def is_ready(self) -> bool:
-        return os.path.isfile(os.path.join(self._model_dir, WEIGHTS_FILE))
+        return _find_weights_file(self._model_dir) is not None
 
     def _write_runtime_yaml(self) -> str:
         model_dir = os.path.abspath(self._model_dir).replace("\\", "/")
-        content = _YAML_TEMPLATE.format(model_dir=model_dir)
+        weights_file = _find_weights_file(self._model_dir) or WEIGHTS_FILE
+        content = _YAML_TEMPLATE.format(model_dir=model_dir, weights_file=weights_file)
         fd, path = tempfile.mkstemp(prefix="unimernet_demo_", suffix=".yaml")
         with os.fdopen(fd, "w", encoding="utf-8") as f:
             f.write(content)
@@ -117,7 +127,7 @@ class UniMERNetRecognizer(Recognizer):
             raise InterruptedError("cancelled")
         if not self.is_ready():
             raise RuntimeError(
-                f"模型文件缺失：{os.path.join(self._model_dir, WEIGHTS_FILE)}"
+                f"模型文件缺失：{self._model_dir} 下未找到 .pth 权重文件"
             )
         self._ensure_loaded()
         if should_stop():

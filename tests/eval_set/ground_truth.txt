@@ -1,0 +1,32 @@
+frac_01	\frac{x+1}{x-1}
+frac_02	\frac{a}{b} + \frac{c}{d}
+frac_03	\frac{\partial f}{\partial x}
+frac_04	\frac{1}{1+x^2}
+frac_05	\frac{n!}{k!(n-k)!}
+frac_06	\frac{-b \pm \sqrt{b^2-4ac}}{2a}
+sqrt_01	\sqrt{x^2+1}
+sqrt_02	\sqrt[3]{27}
+sqrt_03	\sqrt{\frac{a}{b}}
+sqrt_04	\sqrt{a} + \sqrt{b}
+sqrt_05	\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}
+sum_01	\sum_{i=1}^{N} x_i^2
+sum_02	\prod_{k=1}^{n} k = n!
+sum_03	\int_0^1 x^2 dx
+sum_04	\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+sum_05	\lim_{x \to 0} \frac{\sin x}{x} = 1
+sum_06	\sum_{n=0}^{\infty} \frac{x^n}{n!} = e^x
+sub_01	a_n + b_{n-1}
+sub_02	x_i^2 + y_j^3
+sub_03	e^{i\pi} + 1 = 0
+sub_04	a_1^2 + a_2^2 + \cdots + a_n^2
+greek_01	\alpha^2 + \beta \cdot \gamma \approx \theta
+greek_02	\alpha + \beta = \gamma
+greek_03	\Delta = b^2 - 4ac
+greek_04	\pi r^2
+greek_05	\forall \epsilon > 0, \exists \delta > 0
+greek_06	A \cup B, A \cap B
+greek_07	x \leq y \Rightarrow x + z \leq y + z
+long_01	p_{\mathrm{RAG-Sequence}}(y\mid x) \approx \sum_{z} p_{\eta}(z\mid x)\,p_{\theta}(y\mid x,z)
+long_02	(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k
+long_03	f(x) = a_0 + \sum_{n=1}^{\infty} \left( a_n \cos \frac{n\pi x}{L} + b_n \sin \frac{n\pi x}{L} \right)
+long_04	e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}

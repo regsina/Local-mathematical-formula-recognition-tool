@@ -1,7 +1,15 @@
 import os
 
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QCloseEvent, QGuiApplication, QImage, QImageReader, QPixmap
+from PySide6.QtCore import Qt, QTimer, Signal
+from PySide6.QtGui import (
+    QCloseEvent,
+    QGuiApplication,
+    QImage,
+    QImageReader,
+    QKeySequence,
+    QPixmap,
+    QShortcut,
+)
 from PySide6.QtWidgets import (
     QFileDialog,
     QHBoxLayout,
@@ -33,6 +41,63 @@ MULTI_FORMULA_HINT = (
 )
 
 
+class ImageDropArea(QLabel):
+    clicked = Signal()
+    fileDropped = Signal(str)
+
+    NORMAL_STYLE = (
+        "background:#fafafa;border:2px dashed #bbb;color:#666;font-size:14px;"
+    )
+    ACTIVE_STYLE = (
+        "background:#eef6ff;border:2px dashed #4096ee;color:#1668a8;font-size:14px;"
+    )
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setAcceptDrops(True)
+        self.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.setMinimumHeight(240)
+        self.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.setWordWrap(True)
+        self.setText("点击选择或拖拽图片到此处\n支持 PNG / JPG / JPEG")
+        self.setStyleSheet(self.NORMAL_STYLE)
+
+    def mousePressEvent(self, event):
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.clicked.emit()
+        super().mousePressEvent(event)
+
+    def dragEnterEvent(self, event):
+        if self._has_image_url(event):
+            event.acceptProposedAction()
+            self.setStyleSheet(self.ACTIVE_STYLE)
+        else:
+            event.ignore()
+
+    def dragLeaveEvent(self, event):
+        self.setStyleSheet(self.NORMAL_STYLE)
+        super().dragLeaveEvent(event)
+
+    def dropEvent(self, event):
+        self.setStyleSheet(self.NORMAL_STYLE)
+        for url in event.mimeData().urls():
+            path = url.toLocalFile()
+            if path.lower().endswith((".png", ".jpg", ".jpeg")):
+                self.fileDropped.emit(path)
+                break
+        event.acceptProposedAction()
+
+    @staticmethod
+    def _has_image_url(event) -> bool:
+        mime = event.mimeData()
+        if not mime.hasUrls():
+            return False
+        return any(
+            u.toLocalFile().lower().endswith((".png", ".jpg", ".jpeg"))
+            for u in mime.urls()
+        )
+
+
 class MainWindow(QMainWindow):
     def __init__(self, store: HistoryStore | None = None, recognizer=None, parent=None):
         super().__init__(parent)
@@ -50,15 +115,20 @@ class MainWindow(QMainWindow):
         self._build_ui()
         self._wire_task_manager()
         self._update_action_state()
+        self._paste_shortcut = QShortcut(QKeySequence.StandardKey.Paste, self)
+        self._paste_shortcut.setContext(Qt.ShortcutContext.WindowShortcut)
+        self._paste_shortcut.activated.connect(self._paste_clipboard_image)
 
     def _build_ui(self) -> None:
         splitter = QSplitter(Qt.Orientation.Horizontal)
         self._tabs = QTabWidget()
+        self._import_tab = self._build_import_tab()
+        self._tabs.addTab(self._import_tab, "图片导入")
         self._tabs.addTab(self._build_screenshot_tab(), "截图识别")
-        self._tabs.addTab(self._build_import_tab(), "图片导入")
         self._tabs.addTab(self._build_canvas_tab(), "鼠标手写")
         self._history_panel = HistoryPanel(self._store)
         self._tabs.addTab(self._history_panel, "历史记录")
+        self._tabs.setCurrentWidget(self._import_tab)
         splitter.addWidget(self._tabs)
 
         right = QWidget()
@@ -128,18 +198,13 @@ class MainWindow(QMainWindow):
     def _build_import_tab(self) -> QWidget:
         w = QWidget()
         layout = QVBoxLayout(w)
-        self._import_btn = QPushButton("选择图片（PNG/JPG/JPEG）")
-        self._import_preview = QLabel("尚未选择图片")
-        self._import_preview.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self._import_preview.setMinimumHeight(200)
-        self._import_preview.setStyleSheet(
-            "background: #fafafa; border: 1px solid #ddd;"
-        )
+        self._import_btn = ImageDropArea()
+        self._import_preview = self._import_btn
         self._import_submit = QPushButton("提交识别")
         self._import_btn.clicked.connect(self._choose_image)
+        self._import_btn.fileDropped.connect(self._load_image_file)
         self._import_submit.clicked.connect(lambda: self._submit(INPUT_IMPORT))
-        layout.addWidget(self._import_btn)
-        layout.addWidget(self._import_preview, 1)
+        layout.addWidget(self._import_btn, 1)
         layout.addWidget(self._import_submit)
         return w
 
@@ -176,6 +241,22 @@ class MainWindow(QMainWindow):
         self._task_manager.recognizeFailed.connect(self._on_recognize_failed)
         self._task_manager.cancelFinished.connect(self._on_cancel_finished)
 
+    def _paste_clipboard_image(self) -> None:
+        from PySide6.QtWidgets import QApplication, QLineEdit, QPlainTextEdit
+
+        if self._task_manager.is_busy():
+            return
+        focused = QApplication.focusWidget()
+        if isinstance(focused, (QPlainTextEdit, QLineEdit)):
+            return
+        image = QGuiApplication.clipboard().image()
+        if image.isNull():
+            self._status_label.setText("剪贴板中没有图片，无法粘贴")
+            return
+        self._tabs.setCurrentWidget(self._import_tab)
+        self._set_input_image(image, INPUT_IMPORT, None, self._import_preview)
+        self._status_label.setText("已从剪贴板粘贴图片，可提交识别")
+
     def _start_screenshot(self) -> None:
         if self._task_manager.is_busy():
             return
@@ -183,19 +264,27 @@ class MainWindow(QMainWindow):
         if screen is None:
             QMessageBox.warning(self, "截图失败", "未检测到可用屏幕。")
             return
-        self.showMinimized()
+        self.hide()
+        QTimer.singleShot(300, lambda: self._begin_capture(screen))
+
+    def _begin_capture(self, screen) -> None:
         self._overlay = grab_interactive(screen)
         self._overlay.grabbed.connect(self._on_screenshot_grabbed)
         self._overlay.cancelled.connect(self._on_screenshot_cancelled)
-        self._overlay.destroyed.connect(self.showNormal)
+        self._overlay.destroyed.connect(self._restore_window)
+
+    def _restore_window(self) -> None:
+        self.show()
+        self.raise_()
+        self.activateWindow()
 
     def _on_screenshot_grabbed(self, pixmap: QPixmap) -> None:
         image = pixmap.toImage()
-        self.showNormal()
+        self._restore_window()
         self._set_input_image(image, INPUT_SCREENSHOT, None, self._shot_preview)
 
     def _on_screenshot_cancelled(self) -> None:
-        self.showNormal()
+        self._restore_window()
         self._status_label.setText("截图已取消，未启动识别")
 
     def _choose_image(self) -> None:
@@ -204,7 +293,11 @@ class MainWindow(QMainWindow):
         path, _flt = QFileDialog.getOpenFileName(
             self, "选择公式图片", "", "图片文件 (*.png *.jpg *.jpeg)"
         )
-        if not path:
+        if path:
+            self._load_image_file(path)
+
+    def _load_image_file(self, path: str) -> None:
+        if self._task_manager.is_busy():
             return
         try:
             if os.path.getsize(path) > config.MAX_FILE_BYTES:

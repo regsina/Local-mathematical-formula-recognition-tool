@@ -1,0 +1,90 @@
+### Snipaste_2026-11-24_14-40-16.png (2.85s)
+( 2 ) \textcircled { 1 } 1 = \frac { 4 \times 2 } { 3 2 } = \frac { 2 \times 2 - \sqrt { 2 } - 4 \times 2 } { 5 2 }
+
+### Snipaste_2026-11-24_14-40-38.png (0.75s)
+\int \limits _ { a } ^ { b } f ( x ) d x = F ( b ) - F ( a ) _ { 1 } \cdot F ^ { \prime } ( b ) = f ( x )
+
+### Snipaste_2026-11-24_14-40-48.png (0.35s)
+\int u \mathrm { d } v = u v - \int v \mathrm { d } u
+
+### Snipaste_2026-11-24_14-40-58.png (1.34s)
+\iint _ { D } f ( x , y ) \mathrm { d } x \mathrm { d } y = \int _ { x _ { 1 } } ^ { x _ { 2 } } \int _ { y _ { 1 } ( x ) } ^ { y _ { 2 } ( x ) } f ( x , y ) \mathrm { d } y \mathrm { d } x
+
+### Snipaste_2026-11-24_14-41-04.png (1.45s)
+\iiint \limits _ { \Omega } \mathbf { f } ( \mathbf { x } , \mathbf { y } , z ) \mathrm { { d } V = \iiint \limits _ { \Omega } \mathbf { f } ( \mathbf { x } , \mathbf { y } , z ) \mathrm { { d } x \mathrm { { d } y \mathrm { { d } z } } } }
+
+### Snipaste_2026-11-24_14-41-09.png (1.96s)
+f _ { \Delta } P _ { B E } + Q _ { E y } = \langle \rangle \! \langle \sum _ { \mathbf { D } _ { \mathbf { D } } } \! \! \langle \frac { \partial \mathbf { Q } } { \partial \mathbf { x } } \! - \frac { \partial \mathbf { P } } { \partial \mathbf { y } } \rangle \! \! \rangle ^ { \mathrm { \Delta } \mathbf { \upalpha } }
+
+### Snipaste_2026-11-24_14-41-14.png (2.97s)
+\mathrm { \Sigma } \hat { \mathrm { \Huge ~ H } } _ { \Sigma } \mathrm { P } \, \mathrm { d } y \mathrm { d } z + \mathrm { Q } \mathrm { d } z \mathrm { d } x + \mathrm { R d x } \mathrm { d } y = \int \! \left\{ \! \left[ \int _ { \Omega } \! \! \! \frac { \mathrm { \partial } \mathrm { P } } { \mathrm { \partial } \Omega } \! \! + \! \frac { \mathrm { \partial } \mathrm { Q } } { \mathrm { \partial } \Omega } \! + \! \frac { \mathrm { \partial } \mathrm { R } } { \mathrm { \partial } \Omega } \right] \mathrm { d } \mathrm { V } \! \right.
+
+### Snipaste_2026-11-24_14-41-18.png (1.26s)
+{ \mathfrak { f } } ( \mathfrak { x } ) = \sum _ { \mathfrak { n } = 0 } ^ { \infty } { \frac { { \mathfrak { f } } ^ { ( \mathfrak { n } ) } ( 0 ) } { \mathfrak { n } ! } } \mathfrak { x } ^ { \mathfrak { n } }
+
+### Snipaste_2026-11-24_14-41-23.png (0.37s)
+\therefore \frac { a _ { n + 1 } } { n - 1 } = 0
+
+### Snipaste_2026-11-24_14-41-28.png (0.93s)
+\therefore \frac { a _ { 2 } } { a _ { 3 } } = \frac { 1 \times 3 - \sqrt { 3 } - \sqrt { 3 } - \sqrt [ 4 ] { 3 } } { a _ { 1 } }
+
+### Snipaste_2026-11-24_14-41-32.png (2.13s)
+\begin{array} { r } { \nabla \, { \mathfrak { f } } = \frac { \partial \, { \mathfrak { f } } } { \partial { \mathfrak { x } } } { \dot { \mathbf { \mathfrak { a } } } } + \frac { \partial \, { \mathfrak { f } } } { \partial { \mathfrak { y } } } { \dot { \mathbf { \mathfrak { j } } } } + \frac { \partial \, { \mathfrak { f } } } { \partial { \mathfrak { z } } } \mathbf { k } } \end{array}
+
+### Snipaste_2026-11-24_14-41-38.png (0.87s)
+\alpha _ { 2 } = \frac { a _ { 2 } } { a _ { 1 } } \alpha _ { 1 } + \frac { a _ { 2 } } { a _ { 3 } } a _ { 3 }
+
+### Snipaste_2026-11-24_14-41-42.png (0.49s)
+= 5 7 \times 5 7 \times 5 7 \times 5 7 \times 5 7 \times 5 7 \times 5 7
+
+### Snipaste_2026-11-24_14-41-47.png (0.45s)
+\sin ( \alpha + \beta ) = \sin \alpha \cos \beta + \cos \alpha \sin \beta
+
+### Snipaste_2026-11-24_14-41-51.png (0.35s)
+\sin ^ { 2 } x - \sin ^ { 2 } \theta = 2
+
+### Snipaste_2026-11-24_14-41-55.png (0.44s)
+\cos 2 \theta = \cos ^ { 2 } \theta - \sin ^ { 2 } \theta
+
+### Snipaste_2026-11-24_14-41-59.png (0.86s)
+\langle { \frac { \mathrm { d } } { \mathrm { d } \mathbf { x } } } \arctan \mathbf { x } = { \frac { 1 } { 1 + \mathbf { x } ^ { 2 } } }
+
+### Snipaste_2026-11-24_14-42-06.png (0.52s)
+\mathbf { \omega } \cdot \mathbf { \delta } b = | \mathbf { \alpha } | | b | \cos \theta
+
+### Snipaste_2026-11-24_14-42-10.png (1.01s)
+a _ { n } + b _ { 2 } = v a b _ { 3 } - a b _ { 2 } v + v a b _ { 3 } - a b _ { 2 } v b _ { 3 } + v a b _ { 3 } v - a b _ { 2 } v
+
+### Snipaste_2026-11-24_14-42-15.png (0.57s)
+\operatorname* { d e t } { \left( { a \atop c } \right. \left. { b \atop d } \right) } = a d - b c
+
+### Snipaste_2026-11-24_14-42-19.png (0.62s)
+\mathrm { { t r } ( \cal { A } ) = \sum _ { i = 1 } ^ { n } \cal { A } _ { i i } }
+
+### Snipaste_2026-11-24_14-42-25.png (0.73s)
+\begin{array} { r } { ( A B ) _ { i j } = \sum _ { k = 1 } ^ { n } A _ { i k } B _ { k j } } \end{array}
+
+### Snipaste_2026-11-24_14-42-30.png (0.43s)
+\operatorname* { d e t } \( \mathbf { A } - \lambda \mathbf { I } ) = 0
+
+### Snipaste_2026-11-24_14-42-43.png (1.27s)
+\backslash \! \! \left\backslash \! \! \left\backslash \! \! \left\backslash \! \! \left\right\backslash \! \! \left\right\right\rangle \! \! = \sqrt { \sum _ { i = 1 } ^ { \mathrm { n } } \! \! \! \! \alpha _ { i } ^ { 2 } }
+
+### Snipaste_2026-11-24_14-42-47.png (0.89s)
+\therefore \vert \overrightarrow { A B } \vert ^ { \widehat { \Sigma } } = \widehat { \mathbf { B } } ^ { \widehat { \mathbf { \upalpha } } } ~ \vert \widehat { \mathbf { x } }
+
+### Snipaste_2026-11-24_14-42-51.png (0.89s)
+\therefore \int \limits _ { a } ^ { b } f ( x ) d x = \int \limits _ { a - 1 < a ) } ^ { b ^ { - 2 } ( b ) } f ( x ) d x + \ln ( b )
+
+### Snipaste_2026-11-24_14-42-56.png (0.22s)
+4 9 - 2 5 = 1 6
+
+### Snipaste_2026-11-24_14-43-00.png (0.47s)
+\? \! \! \! \! \prod _ { k = 1 } ^ { n } = r _ { k }
+
+### Snipaste_2026-11-24_14-43-03.png (0.44s)
+\overline { { \mathrm { ~ N ~ f ~ } } } = \uplambda \nabla \mathfrak { g }
+
+### Snipaste_2026-11-24_14-43-06.png (0.32s)
+e ^ { i \theta } = \cos \theta + i \sin \theta
+

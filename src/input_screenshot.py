@@ -27,12 +27,23 @@ class ScreenshotOverlay(QWidget):
         self._current = None
         self.setCursor(Qt.CursorShape.CrossCursor)
         self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose)
-        self.setGeometry(
-            self._pixmap.geometry()
-            if hasattr(self._pixmap, "geometry")
-            else self.geometry()
-        )
         self.showFullScreen()
+
+    def _scale_factors(self):
+        sx = self._pixmap.width() / max(self.width(), 1)
+        sy = self._pixmap.height() / max(self.height(), 1)
+        return sx, sy
+
+    def _to_device_rect(self, rect):
+        from PySide6.QtCore import QRect
+
+        sx, sy = self._scale_factors()
+        return QRect(
+            int(rect.x() * sx),
+            int(rect.y() * sy),
+            int(rect.width() * sx),
+            int(rect.height() * sy),
+        )
 
     def mousePressEvent(self, event: QMouseEvent) -> None:
         if event.button() == Qt.MouseButton.LeftButton:
@@ -50,17 +61,7 @@ class ScreenshotOverlay(QWidget):
             self._current = event.position().toPoint()
             rect = self._selection_rect()
             if rect.width() >= 4 and rect.height() >= 4:
-                dpr = self._pixmap.devicePixelRatio()
-                scaled = self._pixmap.rect()
-                from PySide6.QtCore import QRect
-
-                grab_rect = QRect(
-                    int(rect.x() * dpr),
-                    int(rect.y() * dpr),
-                    int(rect.width() * dpr),
-                    int(rect.height() * dpr),
-                )
-                grab_rect = grab_rect.intersected(scaled)
+                grab_rect = self._to_device_rect(rect).intersected(self._pixmap.rect())
                 if not grab_rect.isEmpty():
                     result = self._pixmap.copy(grab_rect)
                     result.setDevicePixelRatio(1.0)
@@ -89,7 +90,7 @@ class ScreenshotOverlay(QWidget):
         painter.fillRect(self.rect(), QColor(0, 0, 0, 100))
         rect = self._selection_rect()
         if not rect.isEmpty():
-            painter.drawPixmap(rect, self._pixmap, rect)
+            painter.drawPixmap(rect, self._pixmap, self._to_device_rect(rect))
             painter.setPen(QPen(QColor(0, 150, 255), 2))
             painter.drawRect(rect)
         painter.end()
