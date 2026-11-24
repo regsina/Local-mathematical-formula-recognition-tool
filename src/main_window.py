@@ -34,12 +34,12 @@ MULTI_FORMULA_HINT = (
 
 
 class MainWindow(QMainWindow):
-    def __init__(self, store: HistoryStore | None = None, parent=None):
+    def __init__(self, store: HistoryStore | None = None, recognizer=None, parent=None):
         super().__init__(parent)
         self.setWindowTitle(config.APP_DISPLAY_NAME)
         self.resize(1100, 720)
         self._store = store or HistoryStore()
-        self._recognizer = create_default_recognizer()
+        self._recognizer = recognizer or create_default_recognizer()
         self._task_manager = TaskManager(self._recognizer, self)
         self._current_image: QImage | None = None
         self._current_method: str = ""

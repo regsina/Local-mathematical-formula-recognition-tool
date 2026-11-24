@@ -10,6 +10,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from PySide6.QtCore import QEventLoop, QTimer
 from PySide6.QtGui import QColor, QImage
 from PySide6.QtWidgets import QApplication
+
+from src import config
 from src.history_store import STATUS_READ_ERROR, HistoryStore
 from src.recognizer.placeholder import PlaceholderRecognizer
 from src.renderer import render_latex
@@ -19,8 +21,6 @@ from src.task_manager import (
     STATE_RECOGNIZING,
     TaskManager,
 )
-
-from src import config
 
 app = QApplication.instance() or QApplication([])
 
@@ -129,7 +129,7 @@ def test_main_window():
     base = tempfile.mkdtemp(prefix="lfr_win_")
     try:
         store = HistoryStore(base)
-        window = MainWindow(store=store)
+        window = MainWindow(store=store, recognizer=PlaceholderRecognizer(delay_s=0.3))
         check("main window created", window is not None)
         window._set_input_image(make_image(), "截图", None, window._shot_preview)
         window._submit("截图")

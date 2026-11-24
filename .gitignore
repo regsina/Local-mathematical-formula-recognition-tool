@@ -3,3 +3,4 @@
 .codeartsdoer/
 __pycache__/
 *.pyc
+wheels/
