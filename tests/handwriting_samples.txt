@@ -1,0 +1,20 @@
+1056331ecf4b4503abd123fcfb466cc7	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\1056331ecf4b4503abd123fcfb466cc7\input.png	\sqrt{(a+b)}^{2016}
+109318e2cb794b1b99652f5267c191b8	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\109318e2cb794b1b99652f5267c191b8\input.png	a_{n}=a_{1}+c_{n-1}d
+1b2561129a7d4708a71c8c40c7d7dd65	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\1b2561129a7d4708a71c8c40c7d7dd65\input.png	1 + 1
+20f7c0e8527c4e2db0860456b353bc1a	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\20f7c0e8527c4e2db0860456b353bc1a\input.png	a + b
+25dab4a9fa0f45bc9b3496fb2c6bd4b2	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\25dab4a9fa0f45bc9b3496fb2c6bd4b2\input.png	\vec{r}=m\vec{a}
+338b282114f94192b78a4d479badbdc1	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\338b282114f94192b78a4d479badbdc1\input.png	\sqrt { ( a + b ) ^ { 3 } } + a ^ { 3 } + b ^ { 2 }
+3bcc5144f7e0495ea7568f1e04b60fa1	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\3bcc5144f7e0495ea7568f1e04b60fa1\input.png	P _ { n } ( z \mid x )
+3eb0775e4187469c843b4b7aef8231ed	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\3eb0775e4187469c843b4b7aef8231ed\input.png	\Delta G=\Delta H-T\Delta S
+4f66a7fe90084f7cbb6e884955472022	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\4f66a7fe90084f7cbb6e884955472022\input.png	x=\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}
+525afc0ef69b41258b3ab60564979fc7	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\525afc0ef69b41258b3ab60564979fc7\input.png	a_{n}=a_{1}+(n-1)d
+549df910bb944146ab25f320c8846f9a	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\549df910bb944146ab25f320c8846f9a\input.png	\int_{a}^{b}f(x)dx=F(b)-F(a)
+5b454e30d8a74430b76d9712e7846d3c	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\5b454e30d8a74430b76d9712e7846d3c\input.png	\Delta\cdot E=\frac{e}{E_{0}}
+5e38caed1744428fa5f9a07b845bc841	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\5e38caed1744428fa5f9a07b845bc841\input.png	f ( x ) = \sum \limits _ { n = 0 } ^ { \infty } \frac { f ^ { ( n ) } ( x ) } { n ! } x ^ { n }
+62341d6d0c244285a57f4ac6b8f5743c	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\62341d6d0c244285a57f4ac6b8f5743c\input.png	\tan\alpha=\frac{\sin\alpha}{\cos\alpha}
+68e011baf3df403ba9e1d5b1af27cb7c	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\68e011baf3df403ba9e1d5b1af27cb7c\input.png	X_{1}^{2}+X_{2}^{2}\geq2X_{1}X_{2}
+6d3b850f5da543bfa3de1e21f40c730e	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\6d3b850f5da543bfa3de1e21f40c730e\input.png	\sin x + \cos x
+74e9f45d74244998b090a480d82d6941	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\74e9f45d74244998b090a480d82d6941\input.png	f ( x ) = \sum \limits _ { n = 0 } ^ { \infty } \frac { f ^ { ( n ) } ( x ) } { n ! } x ^ { n }
+7bfa349c781f473aab0ad1349be959df	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\7bfa349c781f473aab0ad1349be959df\input.png	\frac{d}{dx}\left(e^{x}\right)=e^{x}
+88e6b94794944064ac5b9204a7034849	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\88e6b94794944064ac5b9204a7034849\input.png	S_{n}=\frac{n(a_{1}+a_{n})}{2}
+8c28c3de38814b01b3d801dee7d30bc9	C:\Users\abc\AppData\Roaming\LocalFormulaRecognition\history\8c28c3de38814b01b3d801dee7d30bc9\input.png	\int \limits _ { a } ^ { b } \sin ( x )

@@ -3,6 +3,10 @@ import os
 APP_NAME = "LocalFormulaRecognition"
 APP_DISPLAY_NAME = "本地数学公式识别工具"
 
+# 以下阈值已于 G2 冻结（依据《开发需求/G1技术验证记录.md》实测数据）
+# O03 模型路线：PaddleOCR-VL-0.9B（x2 预处理，真实验收集可用率 93%~97%）
+# O04 输入上限：流程验证可用，冻结为下列值
+# O05 性能口径：x2 预处理后 avg 1.47s，满足约 5 秒目标
 AUTOSAVE_DEBOUNCE_MS = 1000
 PREVIEW_DEBOUNCE_MS = 1000
 RENDER_TIMEOUT_S = 3
