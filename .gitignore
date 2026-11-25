@@ -4,3 +4,7 @@
 __pycache__/
 *.pyc
 wheels/
+build/
+dist/
+*.log
+*.spec
