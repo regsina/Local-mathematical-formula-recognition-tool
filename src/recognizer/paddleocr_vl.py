@@ -40,20 +40,38 @@ class PaddleOCRVLRecognizer(Recognizer):
             return
         os.environ.setdefault("HF_HOME", os.path.join(config.data_dir(), "hf_cache"))
         os.makedirs(os.environ["HF_HOME"], exist_ok=True)
+        import sys
+
         import torch
-        from transformers import AutoModelForCausalLM, AutoProcessor
+
+        pkg_parent = os.path.dirname(self._model_dir)
+        pkg_name = os.path.basename(self._model_dir)
+        init_file = os.path.join(self._model_dir, "__init__.py")
+        if not os.path.exists(init_file):
+            with open(init_file, "w", encoding="utf-8"):
+                pass
+        if pkg_parent not in sys.path:
+            sys.path.insert(0, pkg_parent)
+        modeling = __import__(
+            f"{pkg_name}.modeling_paddleocr_vl",
+            fromlist=["PaddleOCRVLForConditionalGeneration"],
+        )
+        processing = __import__(
+            f"{pkg_name}.processing_paddleocr_vl", fromlist=["PaddleOCRVLProcessor"]
+        )
+        model_cls = modeling.PaddleOCRVLForConditionalGeneration
+        processor_cls = processing.PaddleOCRVLProcessor
 
         self._device = "cuda" if torch.cuda.is_available() else "cpu"
         self._model = (
-            AutoModelForCausalLM.from_pretrained(
+            model_cls.from_pretrained(
                 self._model_dir,
-                trust_remote_code=True,
                 torch_dtype=torch.bfloat16,
             )
             .to(self._device)
             .eval()
         )
-        self._processor = AutoProcessor.from_pretrained(
+        self._processor = processor_cls.from_pretrained(
             self._model_dir, trust_remote_code=True
         )
 
